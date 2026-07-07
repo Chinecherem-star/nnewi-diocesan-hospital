@@ -433,3 +433,94 @@
         <div>
           <label for="notes">What's this visit for? (optional)</label>
         
+<textarea id="notes" placeholder="Briefly describe your reason for the visit"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Prepare request</button>
+    </form>
+    <div id="apptActions" style="display:none; margin-top:12px; gap:10px; flex-wrap:wrap;">
+      <a id="waLink" class="btn" style="background:#25D366; color:#fff;" target="_blank" rel="noopener">Send via WhatsApp</a>
+      <a href="tel:+2348034430546" class="btn btn-navy">Call to confirm</a>
+    </div>
+    <p class="appt-note">This is a request, not a confirmed booking. For emergencies, do not wait — call the hospital or come straight to Accident &amp; Emergency.</p>
+  </div>
+</section>
+
+<section class="location wrap" id="location">
+  <div class="loc-grid">
+    <div class="loc-info">
+      <span class="eyebrow">Find us</span>
+      <b>Nnewi Diocesan Hospital</b>
+      <p>Akwudo Otolo Nnewi, Anambra State, Nigeria.<br>Open 24 hours, 7 days a week.</p>
+      <a href="tel:+2348034430546" class="btn btn-navy">Call +234 803 443 0546</a>
+    </div>
+    <a class="loc-map-btn" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Nnewi+Diocesan+Hospital+Akwudo+Otolo+Nnewi+Anambra+State">
+      <div class="pin">&#128205;</div>
+      <b>Open in Google Maps</b>
+      <span>Get directions to Otolo Nnewi</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="logo-diocese.png" alt="Diocese of Nnewi logo">
+        <div>
+          <b>Anglican Diocese of Nnewi</b>
+          <span>Nnewi Diocesan Hospital, Otolo Nnewi</span>
+        </div>
+      </div>
+      <div class="install-hint">
+        &#128241; <b style="color:#fff;">Install this app:</b> open this page in Safari or Chrome, then tap Share (or menu) → "Add to Home Screen."
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Nnewi Diocesan Hospital</span>
+      <span>Compassion in care, excellence in service.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+2348034430546" class="emergency-bar">
+  <span class="pulse"></span> Emergency? Tap to call now
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('apptForm');
+  const success = document.getElementById('appt-success');
+  const actions = document.getElementById('apptActions');
+  const waLink = document.getElementById('waLink');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const dept = document.getElementById('dept').value;
+    const date = document.getElementById('date').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    let msg = `Appointment request — Nnewi Diocesan Hospital%0A`;
+    msg += `Name: ${name}%0APhone: ${phone}%0ADepartment: ${dept}%0A`;
+    if(date) msg += `Preferred date: ${date}%0A`;
+    if(notes) msg += `Notes: ${notes}%0A`;
+
+    waLink.href = `https://wa.me/2348034430546?text=${msg}`;
+    success.style.display = 'block';
+    actions.style.display = 'flex';
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+    });
+  }
+</script>
+
+</body>
+</html>
