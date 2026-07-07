@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nnewi Diocesan Hospital — Otolo Nnewi</title>
+<meta name="description" content="Nnewi Diocesan Hospital, Otolo Nnewi — 24/7 quality healthcare with compassion, faith and service. Anglican Diocese of Nnewi.">
+<meta name="theme-color" content="#12314F">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NDH Otolo">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #12314F;
+    --navy-deep: #0A2038;
+    --terracotta: #D9784F;
+    --terracotta-deep: #B85C36;
+    --gold: #F0B429;
+    --diocese-red: #C8202F;
+    --cream: #FBF7EF;
+    --paper: #FFFFFF;
+    --ink: #1C2733;
+    --ink-soft: #4A5A6B;
+    --line: rgba(18,49,79,0.12);
+    --radius: 14px;
+    --shadow: 0 12px 32px rgba(18,49,79,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    padding-bottom: 72px; /* space for sticky emergency bar */
+  }
+  img{display:block; max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:600; line-height:1.12; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Inter', sans-serif; font-weight:700; font-size:12.5px;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--terracotta-deep);
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  section{padding: 64px 0;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Inter'; font-weight:600; font-size:15px;
+    padding:13px 22px; border-radius:999px; text-decoration:none;
+    border:1.5px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--diocese-red); color:#fff;}
+  .btn-primary:active{background:#a51824;}
+  .btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,0.55);}
+  .btn-navy{background:var(--navy); color:#fff;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,247,239,0.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .headbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 20px; max-width:1080px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand img{height:38px; width:38px; border-radius:50%;}
+  .brand-text{line-height:1.15;}
+  .brand-text b{font-family:'Fraunces'; font-size:15.5px; display:block; color:var(--navy);}
+  .brand-text span{font-size:11px; color:var(--ink-soft);}
+  .call-header{
+    display:flex; align-items:center; gap:6px;
+    font-size:13.5px; font-weight:700; color:var(--diocese-red);
+    text-decoration:none; padding:8px 14px; border:1.5px solid var(--diocese-red); border-radius:999px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:78vh; display:flex; align-items:flex-end;
+    background:#000;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0.62;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(10,32,56,0.15) 0%, rgba(10,32,56,0.55) 55%, rgba(10,32,56,0.94) 100%);
+  }
+  .hero-content{position:relative; z-index:2; padding:48px 20px 40px; max-width:1080px; margin:0 auto; width:100%;}
+  .badge-open{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35);
+    color:#fff; padding:7px 14px; border-radius:999px; font-size:13px; font-weight:600;
+    margin-bottom:18px; backdrop-filter:blur(6px);
+  }
+  .badge-open .dot{width:8px; height:8px; border-radius:50%; background:#5EE28C; box-shadow:0 0 0 4px rgba(94,226,140,0.25);}
+  .hero h1{color:#fff; font-size:clamp(32px, 6vw, 52px); max-width:760px; margin-bottom:14px;}
+  .hero p{color:rgba(255,255,255,0.86); font-size:16.5px; max-width:520px; margin-bottom:26px; line-height:1.55;}
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+  .hero-tagline{
+    margin-top:34px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.22);
+    color:rgba(255,255,255,0.75); font-family:'Fraunces'; font-style:italic; font-size:15px;
+  }
+
+  /* ---------- MESSAGE / DIRECTOR ---------- */
+  .message{background:var(--paper);}
+  .msg-grid{display:grid; grid-template-columns: 132px 1fr; gap:22px; align-items:start;}
+  .msg-grid img{border-radius:50%; width:132px; height:132px; object-fit:cover; border:3px solid var(--cream); box-shadow:var(--shadow);}
+  .msg-grid h2{font-size:24px; margin-bottom:10px; color:var(--navy);}
+  .msg-grid p{color:var(--ink-soft); line-height:1.7; font-size:15.5px; margin-bottom:10px;}
+  .msg-sign{font-family:'Fraunces'; font-weight:600; color:var(--navy); font-size:15px; margin-top:6px;}
+  .msg-sign small{display:block; font-family:'Inter'; font-weight:500; color:var(--ink-soft); font-size:12.5px; margin-top:2px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--cream);}
+  .section-head{margin-bottom:30px; max-width:600px;}
+  .section-head h2{font-size:30px; color:var(--navy); margin-top:8px;}
+  .section-head p{color:var(--ink-soft); margin-top:10px; font-size:15px; line-height:1.6;}
+
+  .clinic-strip{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:34px;
+  }
+  .clinic-card{
+    background:var(--navy); color:#fff; border-radius:var(--radius); padding:16px 14px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .clinic-card.wed{background:linear-gradient(135deg, var(--navy), #1a4570);}
+  .clinic-card.thu{background:linear-gradient(135deg, var(--terracotta-deep), var(--terracotta));}
+  .clinic-card.fri{background:linear-gradient(135deg, var(--navy-deep), var(--navy));}
+  .clinic-card .day{font-family:'Fraunces'; font-weight:700; font-size:17px; margin-bottom:4px;}
+  .clinic-card .what{font-size:12.5px; opacity:0.88; line-height:1.4;}
+
+  .svc-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:12px;
+  }
+  .svc-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 16px; display:flex; flex-direction:column; gap:6px;
+  }
+  .svc-card .ico{font-size:22px;}
+  .svc-card .name{font-family:'Fraunces'; font-weight:600; font-size:15px; color:var(--navy);}
+
+  /* ---------- FACILITIES ---------- */
+  .facilities{background:var(--paper);}
+  .fac-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto; gap:12px;
+  }
+  .fac-item{position:relative; border-radius:var(--radius); overflow:hidden; min-height:200px; background:#ddd;}
+  .fac-item img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
+  .fac-item .cap{
+    position:absolute; left:0; right:0; bottom:0; z-index:2;
+    background:linear-gradient(0deg, rgba(10,32,56,0.85), transparent);
+    color:#fff; font-size:13px; font-weight:600; padding:26px 14px 12px;
+  }
+  .fac-big{grid-row: span 2;}
+
+  /* ---------- TEAM ---------- */
+  .team{background:var(--cream);}
+  .team-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:14px;
+  }
+  .team-card{background:var(--paper); border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);}
+  .team-card .photo{width:100%; aspect-ratio:1/1; object-fit:cover; background:#eee;}
+  .team-card .info{padding:12px 14px 16px;}
+  .team-card .info b{font-family:'Fraunces'; font-size:14.5px; color:var(--navy); display:block; line-height:1.3;}
+  .team-card .info span{font-size:12px; color:var(--ink-soft);}
+
+  /* ---------- APPOINTMENT ---------- */
+  .appt{background:var(--navy); color:#fff;}
+  .appt .section-head h2{color:#fff;}
+  .appt .section-head p{color:rgba(255,255,255,0.72);}
+  .appt-box{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius); padding:26px; max-width:640px;
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;}
+  .form-row.full{grid-template-columns:1fr;}
+  label{display:block; font-size:12.5px; font-weight:600; margin-bottom:6px; color:rgba(255,255,255,0.85);}
+  input, select, textarea{
+    width:100%; padding:12px 13px; border-radius:9px; border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.94); font-family:'Inter'; font-size:14.5px; color:var(--ink);
+  }
+  textarea{resize:vertical; min-height:70px;}
+  .appt-note{font-size:12.5px; color:rgba(255,255,255,0.6); margin-top:12px; line-height:1.5;}
+  #appt-success{
+    display:none; background:rgba(94,226,140,0.15); border:1px solid rgba(94,226,140,0.4);
+    padding:14px 16px; border-radius:9px; font-size:14px; margin-bottom:14px;
+  }
+
+  /* ---------- LOCATION ---------- */
+  .location{background:var(--paper);}
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;}
+  .loc-info b{font-family:'Fraunces'; font-size:19px; color:var(--navy); display:block; margin-bottom:8px;}
+  .loc-info p{color:var(--ink-soft); font-size:15px; line-height:1.7; margin-bottom:16px;}
+  .loc-map-btn{
+    display:block; background:var(--navy); border-radius:var(--radius); padding:30px 24px;
+    color:#fff; text-decoration:none; text-align:center;
+  }
+  .loc-map-btn .pin{font-size:28px; margin-bottom:8px;}
+  .loc-map-btn b{font-family:'Fraunces'; font-size:16px; display:block; margin-bottom:4px;}
+  .loc-map-btn span{font-size:12.5px; opacity:0.75;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep); color:rgba(255,255,255,0.75); padding:40px 0 100px;}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; margin-bottom:24px;}
+  .foot-brand{display:flex; align-items:center; gap:10px;}
+  .foot-brand img{height:34px; width:34px; border-radius:50%;}
+  .foot-brand b{font-family:'Fraunces'; color:#fff; font-size:15px; display:block;}
+  .foot-brand span{font-size:11.5px;}
+  .install-hint{
+    font-size:12.5px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14);
+    padding:12px 16px; border-radius:10px; max-width:320px; line-height:1.5;
+  }
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12); padding-top:18px; font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+
+  /* ---------- STICKY EMERGENCY BAR ---------- */
+  .emergency-bar{
+    position:fixed; bottom:0; left:0; right:0; z-index:60;
+    background:var(--diocese-red); color:#fff;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 16px; padding-bottom:calc(14px + env(safe-area-inset-bottom));
+    text-decoration:none; font-weight:700; font-size:15px;
+    box-shadow:0 -6px 20px rgba(0,0,0,0.18);
+  }
+  .emergency-bar .pulse{
+    width:9px; height:9px; border-radius:50%; background:#fff;
+    animation:pulse 1.4s infinite;
+  }
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,0.55);}70%{box-shadow:0 0 0 9px rgba(255,255,255,0);}100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:720px){
+    .msg-grid{grid-template-columns:1fr; text-align:left;}
+    .msg-grid img{width:96px; height:96px;}
+    .fac-grid{grid-template-columns:1fr 1fr;}
+    .fac-big{grid-row:auto; grid-column:span 2;}
+    .loc-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .clinic-strip{grid-template-columns:1fr;}
+    .call-header span{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .badge-open .dot, .emergency-bar .pulse{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headbar">
+    <div class="brand">
+      <img src="logo-hospital.png" alt="Nnewi Diocesan Hospital logo">
+      <div class="brand-text">
+        <b>Nnewi Diocesan Hospital</b>
+        <span>Otolo Nnewi &middot; Anglican Diocese of Nnewi</span>
+      </div>
+    </div>
+    <a class="call-header" href="tel:+2348034430546">
+      &#128222; <span>+234 803 443 0546</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="courtyard-night.jpg" alt="Nnewi Diocesan Hospital courtyard, lit through the night">
+  <div class="hero-content">
+    <span class="badge-open"><span class="dot"></span> Open now &middot; 24 hours, every day</span>
+    <h1>Quality healthcare with compassion, faith &amp; service.</h1>
+    <p>Nnewi Diocesan Hospital, Akwudo Otolo Nnewi — a mission of the Anglican Diocese of Nnewi, caring for this community day and night, powered through the night by our own solar supply.</p>
+    <div class="hero-ctas">
+      <a href="#appointment" class="btn btn-primary">Request an appointment</a>
+      <a href="tel:+2348034430546" class="btn btn-ghost">Call the hospital</a>
+    </div>
+    <p class="hero-tagline">"Compassion in care, excellence in service."</p>
+  </div>
+</section>
+
+<section class="message wrap">
+  <div class="msg-grid">
+    <img src="director-okafor.jpg" alt="Ven Dr Ugochukwu Okafor">
+    <div>
+      <span class="eyebrow">A word from the director</span>
+      <h2>Trust, without hesitation.</h2>
+      <p>"When emergencies happen, you need a hospital you can trust without hesitation. At Nnewi Diocesan Hospital, Otolo Nnewi, we are committed to providing quality healthcare with compassion, professionalism, and excellence — twenty-four hours a day, seven days a week."</p>
+      <p class="msg-sign">Ven Dr Ugochukwu Okafor
+        <small>Hospital Director</small>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="services wrap" id="services">
+  <div class="section-head">
+    <span class="eyebrow">Care, around the clock</span>
+    <h2>Services &amp; special clinics</h2>
+    <p>Every department below runs 24/7. Three days a week, specialist consultants hold dedicated clinics for planned, non-emergency visits.</p>
+  </div>
+
+  <div class="clinic-strip">
+    <div class="clinic-card wed">
+      <div class="day">Wednesday</div>
+      <div class="what">General Surgery</div>
+    </div>
+    <div class="clinic-card thu">
+      <div class="day">Thursday</div>
+      <div class="what">Obstetrics &amp; Gynaecology + Orthopaedic</div>
+    </div>
+    <div class="clinic-card fri">
+      <div class="day">Friday</div>
+      <div class="what">Internal Medicine &amp; Paediatrics</div>
+    </div>
+  </div>
+
+  <div class="svc-grid">
+    <div class="svc-card"><div class="ico">&#128657;</div><div class="name">Accident &amp; Emergency</div></div>
+    <div class="svc-card"><div class="ico">&#129704;</div><div class="name">Ambulance Services</div></div>
+    <div class="svc-card"><div class="ico">&#129370;</div><div class="name">Obstetrics &amp; Gynaecology</div></div>
+    <div class="svc-card"><div class="ico">&#128065;&#65039;</div><div class="name">Eye Clinic</div></div>
+    <div class="svc-card"><div class="ico">&#129502;</div><div class="name">Imaging &amp; Scan (X-Ray, 2D Echo)</div></div>
+    <div class="svc-card"><div class="ico">&#128138;</div><div class="name">Well-Stocked Pharmacy</div></div>
+    <div class="svc-card"><div class="ico">&#129502;</div><div class="name">Modern Surgical Theatre</div></div>
+    <div class="svc-card"><div class="ico">&#128118;</div><div class="name">Well-Equipped Labour Room</div></div>
+    <div class="svc-card"><div class="ico">&#129514;</div><div class="name">Laboratory Services</div></div>
+    <div class="svc-card"><div class="ico">&#128737;&#65039;</div><div class="name">CCTV &amp; Trained Security</div></div>
+  </div>
+</section>
+
+<section class="facilities wrap" id="facilities">
+  <div class="section-head">
+    <span class="eyebrow">Around the hospital</span>
+    <h2>Our facilities</h2>
+  </div>
+  <div class="fac-grid">
+    <div class="fac-item fac-big">
+      <img src="theatre.jpg" alt="Modern surgical theatre">
+      <div class="cap">Modern Surgical Theatre</div>
+    </div>
+    <div class="fac-item">
+      <img src="building-gopd.jpg" alt="General Out-Patient Department building">
+      <div class="cap">General Out-Patient Dept.</div>
+    </div>
+    <div class="fac-item">
+      <img src="emergency-entrance.jpg" alt="Accident and Emergency entrance">
+      <div class="cap">Accident &amp; Emergency</div>
+    </div>
+  </div>
+</section>
+
+<section class="team wrap" id="team">
+  <div class="section-head">
+    <span class="eyebrow">The people behind the care</span>
+    <h2>Meet the team</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img class="photo" src="director-okafor.jpg" alt="Ven Dr Ugochukwu Okafor">
+      <div class="info"><b>Ven Dr Ugochukwu Okafor</b><span>Hospital Director</span></div>
+    </div>
+    <div class="team-card">
+      <img class="photo" src="director-clinical-umeoranefo.jpg" alt="Ord. Dr Umeoranefo Isaiah Chukwuebuka">
+      <div class="info"><b>Ord. Dr Umeoranefo I. Chukwuebuka</b><span>Director of Clinical Services</span></div>
+    </div>
+    <div class="team-card">
+      <img class="photo" src="staff-onyia.jpg" alt="Dr Chioma Onyia">
+      <div class="info"><b>Dr Chioma Onyia</b><span>Eye Clinic</span></div>
+    </div>
+    <div class="team-card">
+      <img class="photo" src="staff-udeze.jpg" alt="Dr Ijeoma Udeze">
+      <div class="info"><b>Dr Ijeoma Udeze</b><span>Medical Lab Scientist</span></div>
+    </div>
+    <div class="team-card">
+      <img class="photo" src="staff-afamefuna.jpg" alt="Dr Ebube Afamefuna">
+      <div class="info"><b>Dr Ebube Afamefuna</b><span>Medical Officer</span></div>
+    </div>
+    <div class="team-card">
+      <img class="photo" src="matron-gynae.jpg" alt="Matron, Gynaecology Unit">
+      <div class="info"><b>Matron</b><span>Gynaecology Unit</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="appt wrap" id="appointment">
+  <div class="section-head">
+    <span class="eyebrow" style="color:#F0B429;">Plan your visit</span>
+    <h2>Request an appointment</h2>
+    <p>This sends your request details to the hospital line. A staff member will call you back to confirm your date and time.</p>
+  </div>
+  <div class="appt-box">
+    <div id="appt-success">&#9989; Request ready. Tap "Send via WhatsApp" or "Call to confirm" below to reach the hospital.</div>
+    <form id="apptForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" required placeholder="e.g. Ngozi Eze">
+        </div>
+        <div>
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" required placeholder="080...">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="dept">Department</label>
+          <select id="dept">
+            <option>General Out-Patient</option>
+            <option>Accident &amp; Emergency</option>
+            <option>Obstetrics &amp; Gynaecology</option>
+            <option>Eye Clinic</option>
+            <option>Surgery</option>
+            <option>Internal Medicine</option>
+            <option>Paediatrics</option>
+            <option>Laboratory</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Preferred date</label>
+          <input type="date" id="date">
+        </div>
+      </div>
+      <div class="form-row full">
+        <div>
+          <label for="notes">What's this visit for? (optional)</label>
+          <textarea id="notes" placeholder="Briefly describe your reason for the visit"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Prepare request</button>
+    </form>
+    <div id="apptActions" style="display:none; margin-top:12px; gap:10px; flex-wrap:wrap;">
+      <a id="waLink" class="btn" style="background:#25D366; color:#fff;" target="_blank" rel="noopener">Send via WhatsApp</a>
+      <a href="tel:+2348034430546" class="btn btn-navy">Call to confirm</a>
+    </div>
+    <p class="appt-note">This is a request, not a confirmed booking. For emergencies, do not wait — call the hospital or come straight to Accident &amp; Emergency.</p>
+  </div>
+</section>
+
+<section class="location wrap" id="location">
+  <div class="loc-grid">
+    <div class="loc-info">
+      <span class="eyebrow">Find us</span>
+      <b>Nnewi Diocesan Hospital</b>
+      <p>Akwudo Otolo Nnewi, Anambra State, Nigeria.<br>Open 24 hours, 7 days a week.</p>
+      <a href="tel:+2348034430546" class="btn btn-navy">Call +234 803 443 0546</a>
+    </div>
+    <a class="loc-map-btn" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Nnewi+Diocesan+Hospital+Akwudo+Otolo+Nnewi+Anambra+State">
+      <div class="pin">&#128205;</div>
+      <b>Open in Google Maps</b>
+      <span>Get directions to Otolo Nnewi</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="logo-diocese.png" alt="Diocese of Nnewi logo">
+        <div>
+          <b>Anglican Diocese of Nnewi</b>
+          <span>Nnewi Diocesan Hospital, Otolo Nnewi</span>
+        </div>
+      </div>
+      <div class="install-hint">
+        &#128241; <b style="color:#fff;">Install this app:</b> open this page in Safari or Chrome, then tap Share (or menu) → "Add to Home Screen."
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Nnewi Diocesan Hospital</span>
+      <span>Compassion in care, excellence in service.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+2348034430546" class="emergency-bar">
+  <span class="pulse"></span> Emergency? Tap to call now
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('apptForm');
+  const success = document.getElementById('appt-success');
+  const actions = document.getElementById('apptActions');
+  const waLink = document.getElementById('waLink');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const dept = document.getElementById('dept').value;
+    const date = document.getElementById('date').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    let msg = `Appointment request — Nnewi Diocesan Hospital%0A`;
+    msg += `Name: ${name}%0APhone: ${phone}%0ADepartment: ${dept}%0A`;
+    if(date) msg += `Preferred date: ${date}%0A`;
+    if(notes) msg += `Notes: ${notes}%0A`;
+
+    waLink.href = `https://wa.me/2348034430546?text=${msg}`;
+    success.style.display = 'block';
+    actions.style.display = 'flex';
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+    });
+  }
+</script>
+
+</body>
+</html>
